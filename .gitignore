@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/java/com/example/springboot_html/exception/
+src/main/java/com/example/springboot_html/filter/
+src/main/java/com/example/springboot_html/model/
