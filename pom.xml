@@ -88,10 +88,10 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            </plugin>-->
 
             <!-- 设置编译版本为1.8 -->
             <plugin>
