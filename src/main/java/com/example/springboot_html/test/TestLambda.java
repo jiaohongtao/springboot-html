@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class TestLambda {
 
 	public static void main(String[] args) {
+		// 测试list_lambda
 		List<String> proNames = Arrays.asList("Ni", "Hao", "Lambda");
 		List<String> uppercaseNames = proNames.stream().map(String::toUpperCase).collect(Collectors.toList());
 		System.out.println(uppercaseNames);
