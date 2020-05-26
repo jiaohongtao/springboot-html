@@ -71,7 +71,7 @@ public class BaiduTuiSong {
 
     private void testBaidu() {
         //网站的服务器连接
-        String url = "http://data.zz.baidu.com/urls?site=blog.jiaohongtao.com&token=token";
+        String url = "http://data.zz.baidu.com/urls?site=blog.jiaohongtao.com&token=pb4UE61ETBjVhKyp";
         String[] param = {
                 "https://blog.jiaohongtao.com/2019/12/25/html%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E6%A0%B9%E8%B7%AF%E5%BE%84/index.html"
         };

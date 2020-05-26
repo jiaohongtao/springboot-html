@@ -2,7 +2,7 @@ package com.example.springboot_html.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.MediaType;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Api
 public class HelloController {
 
+	@Value("${my.name}")
+	private String name;
+
 	@RequestMapping({"", "/index"})
 	@ApiOperation(value = "首页(hello)", httpMethod = "GET")
 	public String index() {
-		return "hello";
+		return "hello:" + name;
 	}
 }
