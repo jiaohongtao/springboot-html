@@ -22,6 +22,7 @@ public class TestSchedule {
     private final Logger logger = LoggerFactory.getLogger(TestSchedule.class);
 
     @Scheduled(initialDelay = 1000, fixedRate = 10000)
+    // @Scheduled(cron = "0/5 * * * * *")
     public void run() {
         logger.info("Current time is :: " + Calendar.getInstance().getTime());
     }
