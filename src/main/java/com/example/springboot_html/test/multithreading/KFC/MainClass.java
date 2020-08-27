@@ -24,7 +24,7 @@ public class MainClass {
 		//让所有的对象的线程都开始工作
 		waiter1.start();
 		waiter2.start();
-		waiter3.start();
+		// waiter3.start();
 		c1.start();
 		c2.start();
 		c3.start();

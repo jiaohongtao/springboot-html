@@ -1,6 +1,6 @@
 package com.example.springboot_html.controller;
 
-import com.example.springboot_html.interf.AService;
+import com.example.springboot_html.service.interf.AService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

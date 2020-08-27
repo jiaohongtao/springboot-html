@@ -12,11 +12,15 @@ public class Waiter extends Thread {
 		this.kfc = kfc;
 	}
 
+	private double random = Math.random();
+
 	@Override
 	public void run() {
-		int size = (int) (Math.random() * 5) + 5;//每次生产的数量
+		//每次生产的数量
+		int size = (int) (random * 5) + 4;
 		while (true) {
-			kfc.product(size);//传入每次生产的数量
+			//传入每次生产的数量
+			kfc.product(size);
 		}
 
 	}

@@ -32,20 +32,20 @@ public class TestSchedule {
     private final Logger logger = LoggerFactory.getLogger(TestSchedule.class);
 
     // @Scheduled(initialDelay = 1000, fixedRate = 10000)
-    @Scheduled(cron = "0/5 * * * * *")
+    // @Scheduled(cron = "0/5 * * * * *")
     public void run() {
         System.out.println(Thread.currentThread().getName());
         logger.info("Current time is run:: " + Calendar.getInstance().getTime());
         System.out.println("====================");
     }
 
-    @Scheduled(cron = "0/6 * * * * *")
+    // @Scheduled(cron = "0/6 * * * * *")
     public void run1() {
         System.out.println(Thread.currentThread().getName());
         logger.info("Current time is run1:: " + Calendar.getInstance().getTime());
     }
 
-    @Scheduled(cron = "0/2 * * * * *")
+    // @Scheduled(cron = "0/2 * * * * *")
     public void run2() {
         System.out.println(Thread.currentThread().getName());
         logger.info("Current time is run2:: " + Calendar.getInstance().getTime());

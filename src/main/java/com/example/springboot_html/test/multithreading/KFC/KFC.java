@@ -1,7 +1,11 @@
 package com.example.springboot_html.test.multithreading.KFC;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author jiaohongtao
@@ -19,6 +23,12 @@ public class KFC {
 
 	// 生产食物的方法
 	public void product(int index) {
+		try {
+			System.out.println("生产者-当前时间：\r\n" + LocalDateTime.now());
+			TimeUnit.MILLISECONDS.sleep(1 * 20 * 60L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		synchronized (this) {
 			// 如果食物数量大于20
 			while (foods.size() > Max) {
@@ -34,17 +44,27 @@ public class KFC {
 			}
 
 			// 开始生产食物食物//有一点要注意的
-			System.out.println("开始生产食物");
+			System.out.println("==========开始生产食物");
+			StringBuilder msg = new StringBuilder("生产了(" + index + "个)：");
 			for (int i = 0; i < index; i++) {
 				Food food = new Food(names[(int) (Math.random() * 4)]);
 				foods.add(food);
-				System.out.println("生产了" + food.getName() + foods.size());
+				msg.append(food.getName()).append(foods.size()).append(" ");
+				System.out.println("生产时间到：" + LocalDateTime.now());
+				// System.out.println("生产了" + food.getName() + foods.size());
 			}
+			System.out.println(msg);
 		}
 	}
 
 	// 消费食物的方法
 	public void consume(int index) {
+		try {
+			System.out.println("消费者-当前时间：\r\n" + LocalDateTime.now());
+			TimeUnit.MILLISECONDS.sleep(1 * 20 * 60L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		synchronized (this) {
 			while (foods.size() < index) {
 				System.out.println("食材不够了");
@@ -58,11 +78,15 @@ public class KFC {
 				}
 			}
 			// 足够消费
-			System.out.println("开始消费");
+			System.out.println("==========开始消费");
+			StringBuilder msg = new StringBuilder("消费了(" + index + "个)：");
 			for (int i = 0; i < index; i++) {
 				Food food = foods.remove(foods.size() - 1);
-				System.out.println("消费了一个" + food.getName() + foods.size());
+				msg.append(food.getName()).append(foods.size()).append(" ");
+				System.out.println("消费时间到：" + LocalDateTime.now());
+				// System.out.println("消费了一个" + food.getName() + foods.size());
 			}
+			System.out.println(msg);
 		}
 	}
 }
