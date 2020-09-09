@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>功能说明</title>
+    <style>
+        .aLink {
+            text-decoration: none;
+        }
+
+        .aLink:hover {
+            text-decoration: underline;
+        }
+        .submitButton {
+            margin-top: 20px;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 style="text-align: center;"><strong>已有功能</strong></h1>
+    <hr color=#987cb9 style=" width:80%;">
+    <br>
+    <div class="submitButton">
+        <!--<a href="/hi/image/page" target="_blank">跳转</a>-->
+        <a id="imageToPdf" class="aLink" href="javascript:void(0);">图片转Pdf</a>
+    </div>
+</div>
+</body>
+<script>
+    //获取项目根路径
+    function getRootPath() {
+        let curWwwPath = window.document.location.href;
+        let pathName = window.document.location.pathname;
+        let pos = curWwwPath.indexOf(pathName);
+        return pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+    }
+
+    // 设置功能链接
+    document.getElementById('imageToPdf').href = getRootPath() + '/image/page';
+
+</script>
+</html>
