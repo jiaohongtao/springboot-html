@@ -7,10 +7,10 @@ server:
 # spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 
 spring:
-  session:
-    store-type: jdbc
-  application:
-    name: demo
+#  session:
+#    store-type: jdbc
+#  application:
+#    name: demo
 
 
   thymeleaf:
@@ -35,24 +35,24 @@ spring:
       # 监听目录
       additional-paths: src/main/java
 
-  datasource:
-    url: jdbc:mysql://10.20.10.16:3306/ceshi_lts?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: onceas
-    # type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
-
-jpa:
-  properties:
-    hibernate:
-      ddl-auto: update
-      # properties:
-      #   hibernate:
-      #     hbm2ddl:
-      #       auto: create
-      #     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-      #     format_sql: true
-      show-sql: true
+#  datasource:
+#    url: jdbc:mysql://10.20.10.16:3306/ceshi_lts?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: onceas
+#    # type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
+#
+#  jpa:
+#    properties:
+#      hibernate:
+#        ddl-auto: update
+#        # properties:
+#        #   hibernate:
+#        #     hbm2ddl:
+#        #       auto: create
+#        #     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        #     format_sql: true
+#        show-sql: true
 
 my:
   name: jiaohongtao
