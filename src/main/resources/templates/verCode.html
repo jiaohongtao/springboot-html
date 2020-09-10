@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head lang="en">
+    <title>获取验证码</title>
+</head>
+<body>
+<img id="verCode" alt="点击刷新验证码" src="">
+<script type="application/javascript">
+    //获取项目根路径
+    function getRootPath() {
+        let curWwwPath = window.document.location.href;
+        let pathName = window.document.location.pathname;
+        let pos = curWwwPath.indexOf(pathName);
+        return pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+    }
+
+    const image = document.getElementById("verCode");
+    image.src = getRootPath() + "/verCode"
+
+    /* 点击图片刷新验证码 */
+    image.onclick = function () {
+        image.src = getRootPath() + "/verCode";
+    }
+</script>
+</body>
+</html>
