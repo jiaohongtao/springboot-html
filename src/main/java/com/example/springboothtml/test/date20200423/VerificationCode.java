@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * 生成验证码 并将验证码转化为图片的业务
+ * href: https://blog.csdn.net/qq_40542534/article/details/108503921
  *
  * @author jiaohongtao
  * @version 1.0
