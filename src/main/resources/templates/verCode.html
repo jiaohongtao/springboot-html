@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head lang="en">
+<html lang="en">
+<head>
     <title>获取验证码</title>
 </head>
 <body>
@@ -18,7 +19,8 @@
 
     /* 点击图片刷新验证码 */
     image.onclick = function () {
-        image.src = getRootPath() + "/verCode";
+        // 如果不加随机数，点击时浏览器会自行判断，如果新旧一致会直接从缓存中读取，不会请求
+        image.src = getRootPath() + "/verCode?" + Math.random();
     }
 </script>
 </body>
