@@ -28,6 +28,10 @@ public class Result {
         return new Result(true, data, message);
     }
 
+    public static Result failed(String message) {
+        return new Result(false, null, message);
+    }
+
     public static Result failed(Object data, String message) {
         return new Result(false, data, message);
     }
