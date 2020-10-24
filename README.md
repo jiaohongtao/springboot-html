@@ -3,3 +3,6 @@
 
 # 已有功能请访问页面
 http://localhost:9090/hi/function/description
+
+# 参考文献
+- [SpringBoot + validation 接口参数校验](https://blog.csdn.net/u014553029/article/details/109192520)
