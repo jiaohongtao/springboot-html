@@ -18,13 +18,7 @@ public class Result {
     private boolean success;
     private Object data;
     private String message;
-    private int code;
-
-    public Result(boolean success, Object data, String message) {
-        this.success = success;
-        this.data = data;
-        this.message = message;
-    }
+    // private int code;
 
     public static Result success(Object data) {
         return new Result(true, data, null);
