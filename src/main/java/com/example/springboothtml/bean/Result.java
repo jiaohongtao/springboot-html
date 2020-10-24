@@ -26,11 +26,15 @@ public class Result {
         this.message = message;
     }
 
-    public static Result SUCCESS(Object data, String message) {
+    public static Result success(Object data) {
+        return new Result(true, data, null);
+    }
+
+    public static Result success(Object data, String message) {
         return new Result(true, data, message);
     }
 
-    public static Result FAILED(Object data, String message) {
+    public static Result failed(Object data, String message) {
         return new Result(false, data, message);
     }
 }
