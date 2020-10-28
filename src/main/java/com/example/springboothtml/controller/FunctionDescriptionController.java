@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FunctionDescriptionController {
 
     @ApiOperation("跳转页面")
-    @GetMapping("/function/description")
+    // @GetMapping("/function/description")
+    @GetMapping("/func")
     public String functionDescription() {
         return "functionDescription";
     }
