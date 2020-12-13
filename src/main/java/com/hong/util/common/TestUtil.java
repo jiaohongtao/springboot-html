@@ -1,6 +1,5 @@
 package com.hong.util.common;
 
-import com.example.springboothtml.bean.*;
 import com.hong.bean.*;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;

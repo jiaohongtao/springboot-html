@@ -195,7 +195,8 @@ public class Swagger2MarkupMojoTest {
         //given
         Swagger2MarkupMojo mojo = new Swagger2MarkupMojo();
         // addr: ip:port/项目名/v2/api-docs,如果没有定义项目名，则为addr: ip:port/v2/api-docs
-        mojo.swaggerInput = "http://localhost:9090/spring_html/v2/api-docs";
+        // mojo.swaggerInput = "http://localhost:9090/spring_html/v2/api-docs";
+        mojo.swaggerInput = "http://localhost:9090/hi/v2/api-docs";
         mojo.outputDir = new File(OUTPUT_DIR).getAbsoluteFile();
 
         //when
