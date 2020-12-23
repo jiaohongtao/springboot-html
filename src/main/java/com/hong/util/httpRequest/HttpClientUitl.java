@@ -48,7 +48,8 @@ public class HttpClientUitl {
             //2.创建get请求
             HttpGet httpGet = new HttpGet(sb.toString());
             //3.设置请求和传输超时时间
-            RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(2000).build();
+            // RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(2000).build();
+            RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(20000).setConnectTimeout(20000).build();
             httpGet.setConfig(requestConfig);
             /*此处可以添加一些请求头信息，例如：
             httpGet.addHeader("content-type","text/xml");*/
@@ -107,7 +108,7 @@ public class HttpClientUitl {
             HttpPost httpPost = new HttpPost(url);
 
             //3.设置请求和传输超时时间
-            RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(2000).build();
+            RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(20000).setConnectTimeout(20000).build();
             httpPost.setConfig(requestConfig);
 
             //4.提交参数发送请求
