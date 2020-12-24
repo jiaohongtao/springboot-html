@@ -22,7 +22,7 @@ import java.io.IOException;
  * @since 2020年08月27日
  */
 @Controller
-@Api("图片转pdf")
+@Api(tags = "图片转pdf")
 @RequestMapping("/image")
 public class PdfController {
 

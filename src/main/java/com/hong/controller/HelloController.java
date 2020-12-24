@@ -9,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
@@ -26,7 +25,7 @@ public class HelloController {
     @Value("${my.name}")
     private String name;
 
-    @RequestMapping({"", "/index"})
+    @GetMapping({"", "/index"})
     @ApiOperation(value = "首页(hello)", httpMethod = "GET")
     public String index() {
         return "hello:" + name;
