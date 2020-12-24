@@ -9,11 +9,14 @@
     <h1>获取身份证信息</h1>
     <input id="idNumber" placeholder="请输入身份证号码"/>
     <button onclick="getAge()">获取年龄</button>
-    <button onclick="getProvince()">获取省出生地</button>
+    <!--<button onclick="getProvince()">获取省出生地</button>-->
+    <button onclick="getCityOrProvince('province')">获取省出生地</button>
+    <button onclick="getCityOrProvince('city')">获取县（区）出生地</button>
     <button onclick="getSex()">获取性别</button>
 </div>
 <script type="application/javascript">
     let idNumberInput = document.getElementById("idNumber")
+
     function getAge() {
         let idNumber = idNumberInput.value
         if (!idNumber) {
@@ -29,12 +32,26 @@
             idNumberFocus();
             return;
         }
-        window.document.location.href = getRootPath() + "/idCard/province/" + idNumber
+        // window.document.location.href = getRootPath() + "/idCard/province/" + idNumber
+        window.document.location.href = getRootPath() + "/idCard/cityOrProvince/" + idNumber + "/0"
     }
 
-    function idNumberFocus() {
-        alert("请填写身份证号");
-        idNumberInput.focus();
+    // function getCity(city) {
+    function getCityOrProvince(cOrp) {
+        let idNumber = idNumberInput.value
+        if (!idNumber) {
+            idNumberFocus();
+            return;
+        }
+        let type = cOrp === 'city' ? "/1" : "/0";
+        /*let type = "/0";
+        if (cOrp === 'city') {
+            type = "/1"
+        } else if (cOrp === 'province') {
+            type = "/0"
+        }*/
+        let cityAll = "/idCard/cityOrProvince/" + idNumber + type
+        window.document.location.href = getRootPath() + cityAll
     }
 
     function getSex() {
@@ -44,6 +61,11 @@
             return;
         }
         window.document.location.href = getRootPath() + "/idCard/sex/" + idNumber
+    }
+
+    function idNumberFocus() {
+        alert("请填写身份证号");
+        idNumberInput.focus();
     }
 
     //获取项目根路径

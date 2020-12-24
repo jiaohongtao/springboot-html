@@ -1,12 +1,10 @@
 package com.hong.util.common;
 
-import com.hong.util.httpRequest.HttpClientUitl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.StringUtils;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,6 +14,7 @@ import java.util.Date;
  * @version 1.0
  * @since 2020年12月23日
  */
+@Slf4j
 public class IDCardUtil {
     /**
      * 根据身份证号判断性别
@@ -114,7 +113,45 @@ public class IDCardUtil {
             e.printStackTrace();
         }
         // System.out.println(buffer.toString());
-        return "母鸡";
+        return "目前只允许查询中国境内的市，你是中国的吗，呜呜";
+    }
+
+    /**
+     * 根据身份证号获取省/县
+     *
+     * @param idNumber 身份证号
+     * @param type     0/1 省/县
+     * @return 城市
+     */
+    public static String getCityOrProvince(String idNumber, int type) {
+        String idNum = idNumber.substring(0, type == 0 ? 3 : 6);
+        String path = type == 0 ? "static/province.txt" : "static/city.txt";
+        ClassPathResource classPathResource = new ClassPathResource(path);
+        try {
+            InputStream inputStream = classPathResource.getInputStream();
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+            while (bufferedReader.ready()) {
+                String addresses = bufferedReader.readLine();
+                if ("".equals(addresses)) {
+                    continue;
+                }
+                String[] split = addresses.split(" ");
+                if (idNum.equals(split[1])) {
+                    return split[0];
+                } else {
+                    // 部分地区代码并不匹配，如河北省衡水市131，但是河北省为130，所以用前两位匹配
+                    if (type == 0) {
+                        if (split[1].substring(0, 2).equals(idNum.substring(0, 2))) {
+                            return split[0];
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            log.error("未知异常：", e);
+        }
+        return type == 0 ? "目前只允许查询中国境内的市，你是中国的吗，呜呜" : "目前只允许查询河北省内的县/区，呜呜";
     }
 
     public static void main(String[] args) {

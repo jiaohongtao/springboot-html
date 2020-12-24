@@ -23,6 +23,12 @@ public class ProvinceController {
         return IDCardUtil.getProvince(idNumber);
     }
 
+    @ApiOperation(value = "县级地区", httpMethod = "GET")
+    @GetMapping("/cityOrProvince/{idNumber}/{type}")
+    public String getCity(@PathVariable String idNumber, @PathVariable int type) {
+        return IDCardUtil.getCityOrProvince(idNumber, type);
+    }
+
     @ApiOperation(value = "性别", httpMethod = "GET")
     @GetMapping("/sex/{idNumber}")
     public String getSex(@PathVariable String idNumber) {
