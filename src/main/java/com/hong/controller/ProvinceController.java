@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api(tags = "获取身份证信息")
 @RestController
+@RequestMapping("/idCard")
 public class ProvinceController {
     @ApiOperation(value = "省级地区", httpMethod = "GET")
     @GetMapping("/province/{idNumber}")
