@@ -22,14 +22,14 @@ import javax.validation.constraints.NotNull;
 @Validated
 public class HelloController {
 
-    @Value("${my.name}")
+    /*@Value("${my.name}")
     private String name;
 
     @GetMapping({"", "/index"})
     @ApiOperation(value = "首页(hello)", httpMethod = "GET")
     public String index() {
         return "hello:" + name;
-    }
+    }*/
 
     @GetMapping("/hello")
     @ApiOperation(value = "Hello", httpMethod = "GET")
