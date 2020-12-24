@@ -13,26 +13,42 @@
     <button onclick="getSex()">获取性别</button>
 </div>
 <script type="application/javascript">
+    let idNumberInput = document.getElementById("idNumber")
     function getAge() {
-        let idNumber = document.getElementById("idNumber").value
+        let idNumber = idNumberInput.value
+        if (!idNumber) {
+            idNumberFocus();
+            return;
+        }
         window.document.location.href = getRootPath() + "/idCard/age/" + idNumber
     }
 
     function getProvince() {
-        let idNumber = document.getElementById("idNumber").value
+        let idNumber = idNumberInput.value
+        if (!idNumber) {
+            idNumberFocus();
+            return;
+        }
         window.document.location.href = getRootPath() + "/idCard/province/" + idNumber
     }
 
+    function idNumberFocus() {
+        alert("请填写身份证号");
+        idNumberInput.focus();
+    }
+
     function getSex() {
-        let idNumber = document.getElementById("idNumber").value
+        let idNumber = idNumberInput.value
+        if (!idNumber) {
+            idNumberFocus();
+            return;
+        }
         window.document.location.href = getRootPath() + "/idCard/sex/" + idNumber
     }
 
     //获取项目根路径
     function getRootPath() {
-        let curWwwPath = window.document.location.href;
         let pathName = window.document.location.pathname;
-        let pos = curWwwPath.indexOf(pathName);
         return pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
     }
 </script>
