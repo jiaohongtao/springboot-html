@@ -27,7 +27,7 @@ public class SwaggerConfiguration {
                 .apiInfo(apiInfo())
                 .select()
                 //为controller包路径
-                .apis(RequestHandlerSelectors.basePackage("com.example.springboothtml.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.hong.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

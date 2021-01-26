@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @describtion 测试页面
  */
 @RestController
-@Api
+@Api(tags = "Test")
 public class TestController {
 	@GetMapping("test")
 	@ApiOperation(value = "test", httpMethod = "GET")
@@ -29,5 +29,11 @@ public class TestController {
 	@ApiOperation(value = "hello2", httpMethod = "GET")
 	public String hello2() {
 		return "hello2";
+	}
+
+	@GetMapping("testO")
+	@ApiOperation(value = "testO")
+	public String testO() {
+		return "testO";
 	}
 }
