@@ -1,6 +1,6 @@
 package com.hong.util.common;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,13 +9,23 @@ import org.springframework.stereotype.Component;
  * @since 2020年04月26日
  */
 @Component
+@ConfigurationProperties(prefix = "my")
 public class PropertiesUtil {
+    private String name;
 
-    @Value("${my.name}")
-    private String myName;
+    public void getName() {
+        System.out.println(name);
+    }
 
-    private void getName() {
-        System.out.println(myName);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PropertiesUtil() {
+    }
+
+    public PropertiesUtil(String name) {
+        this.name = name;
     }
 
     public static void main(String[] args) {
